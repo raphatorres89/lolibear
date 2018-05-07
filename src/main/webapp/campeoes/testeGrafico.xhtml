@@ -1,0 +1,72 @@
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Lolibear</ui:define>
+
+	<ui:define name="corpo">
+
+		<div class="container">
+			<canvas id="grafico"></canvas>
+			<script>
+				var ctx = document.getElementById("grafico");
+				ctx.height = 60;
+				
+				/* ctx.style.backgroundColor = 'rgba(158, 167, 184, 0.2)'; */
+				
+				var data = [#{campeaoController.campeao.info.attack},
+					        #{campeaoController.campeao.info.defense},
+					        #{campeaoController.campeao.info.magic},
+					        #{campeaoController.campeao.info.difficulty}];
+
+				var myChart = new Chart(ctx, {
+					type : 'horizontalBar',
+					data : {
+						labels : [ "Ataque", "Defesa", "Magia", "Dificuldade" ],
+						datasets : [ {
+							data : data,
+							backgroundColor : [
+							        'rgba(255, 61, 0, 1)',
+									'rgba(100, 221, 23, 1)',
+									'rgba(3, 169, 244, 1)',
+									'rgba(171, 71, 188, 1)' ],
+							borderColor : [
+							        'rgba(255, 61, 0, 1)',
+									'rgba(100, 221, 23, 1)',
+									'rgba(3, 169, 244, 1)',
+									'rgba(171, 71, 188, 1)' ],
+							borderWidth : 1
+						} ]
+					},
+					options : {
+						legend : {
+							display : false
+						},
+						scales : {
+							yAxes : [ {
+								barPercentage : 0.4,
+								gridLines : {
+									display : false
+								}
+							} ],
+							xAxes : [ {
+								display : false,
+								gridLines : {
+									display : false
+								},
+								ticks : {
+									beginAtZero : true,
+									suggestedMax : 10
+								}
+							} ]
+						}
+					}
+				});
+		</script>
+		</div>
+
+	</ui:define>
+</ui:composition>

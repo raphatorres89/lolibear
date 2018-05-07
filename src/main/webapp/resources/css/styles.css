@@ -1,0 +1,108 @@
+/* Estilo do Footer */
+body {
+	background-color: #212121 !important;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+/* Cor do carousel */
+
+.carousel .indicators .indicator-item {
+	background-color: #212121 !important;
+}
+
+.letraVerde {
+	color: #257372 !important;
+}
+
+.letraDourada {
+	 color: rgb(201, 170, 113) !important;
+}
+
+.letraDourada2 {
+	color: rgb(196, 185, 152) !important;
+}
+
+.maiuscula {
+	text-transform: uppercase;
+}
+
+i.icon-dourado {
+    color: rgb(201, 170, 113) !important;
+}
+
+/* Estilo do collection */
+
+.tabs .tab a {
+	color: rgb(196, 185, 152) !important;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+	color: rgb(201, 170, 113) !important;
+}
+
+.tabs .indicator {
+	background-color: rgb(201, 170, 113) !important;
+}
+
+.collection.with-header .collection-header {
+	border-bottom: 1px solid rgb(201, 170, 113) !important;
+}
+
+.collection .collection-item {
+	border-bottom: 1px solid rgb(201, 170, 113) !important;
+}
+
+.collection {
+	border: 1px solid rgb(201, 170, 113) !important;
+}
+
+/* .Estilo da imagem redonda */
+img {
+	border: thin solid rgb(201, 170, 113) !important;
+}
+
+/* Cor das habilidades */
+
+.colorFFEB7F {
+	color: #FFEB7F !important;
+}
+
+.colorFF8C00 {
+	color: #FF8C00 !important;
+}
+
+.color99FF99 {
+	color: #99FF99 !important;
+}
+
+.color8C8C8C {
+	color: #8C8C8C !important;
+}
+
+.colorFF9900 {
+	color: #FF9900 !important;
+}
+
+.colorFFB3B3 {
+	color: #FFB3B3 !important;
+}
+
+.colorFFFFFF {
+	color: #FFFFFF !important;
+}
+
+.colorCC3300 {
+	color: #CC3300 !important;
+}
+
+/* Tabela */
+
+td, th {
+    padding: 4px 5px !important;
+}

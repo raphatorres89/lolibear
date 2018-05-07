@@ -1,0 +1,98 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<div class="row">
+		<div class="col s12 m6">
+			<div class="card grey darken-3">
+	         	<div class="card-content">
+					<table>
+						<thead>
+							<tr class="letraDourada">
+								<th>Stats</th>
+								<th>Valor (por nível)</th>
+							</tr>
+						</thead>
+						<tbody class="grey-text text-lighten-1">
+							<tr>
+								<td><i class="mdi mdi-flask-outline red-text"></i> Vida:</td>
+								<td><h:outputText value="#{campeaoController.campeao.stats.hp}" />
+									(<h:outputText value="#{campeaoController.campeao.stats.hpPerLevel}" />)
+								</td>
+							</tr>
+							<tr>
+								<td><i class="mdi mdi-plus red-text"></i> Regeneração de vida:</td>
+								<td><h:outputText value="#{campeaoController.campeao.stats.hpRegen}" />
+								(<h:outputText value="#{campeaoController.campeao.stats.hpRegenPerLevel}" />)</td>
+							</tr>
+							<tr>
+								<td><i class="mdi mdi-flask-outline blue-text"></i> Mana:</td>
+								<td><h:outputText value="#{campeaoController.campeao.stats.mp}" />
+									(<h:outputText value="#{campeaoController.campeao.stats.mpPerLevel}" />)
+								</td>
+							</tr>
+							<tr>
+								<td><i class="mdi mdi-plus blue-text"></i> Regeneração de mana:</td>
+								<td><h:outputText value="#{campeaoController.campeao.stats.mpRegen}" />
+								(<h:outputText value="#{campeaoController.campeao.stats.mpRegenPerLevel}" />)</td>
+							</tr>
+							<tr>
+								<td><i class="mdi mdi-ray-start-arrow yellow-text"></i> Alcance:</td>
+								<td><h:outputText value="#{campeaoController.campeao.stats.attackRange}" /></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col s12 m6">
+			<div class="card grey darken-3">
+	         	<div class="card-content grey-text text-lighten-1">
+					<table>
+						<thead>
+							<tr class="letraDourada">
+								<th>Stats</th>
+								<th>Valor(por nível)</th>
+							</tr>
+						</thead>
+						<tbody class="grey-text text-lighten-1">
+							<tr>
+								<td><i class="mdi mdi-sword grey-text"></i> Dano de Ataque:</td>
+								<td><h:outputText value="#{campeaoController.campeao.stats.attackDamage}" />
+									(<h:outputText value="#{campeaoController.campeao.stats.attackDamagePerLevel}" />)</td>
+							</tr>
+							<tr>
+								<td><i class="mdi mdi-speedometer yellow-text"></i> Vel de Ataque:</td>
+								<td><h:outputText value="#{campeaoController.campeao.stats.attackSpeedOffset}" />
+								(<h:outputText value="#{campeaoController.campeao.stats.attackSpeedPerLevel}" />)</td>
+							</tr>
+							<tr>
+								<td><i class="mdi mdi-shield grey-text"></i> Armadura:</td>
+								<td><h:outputText
+										value="#{campeaoController.campeao.stats.armor}" /> (<h:outputText
+										value="#{campeaoController.campeao.stats.armorPerLevel}" />)
+								</td>
+							</tr>
+							<tr>
+								<td><i class="mdi mdi-shield-half-full blue-text"></i> Resistência Mágica:</td>
+								<td><h:outputText
+										value="#{campeaoController.campeao.stats.spellBlock}" /> (<h:outputText
+										value="#{campeaoController.campeao.stats.spellBlockPerLevel}" />)
+								</td>
+							</tr>
+							<tr>
+								<td><i class="mdi mdi-flash yellow-text"></i> Vel de Movimento:</td>
+								<td><h:outputText value="#{campeaoController.campeao.stats.moveSpeed}" /></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+			
+
+</ui:composition>

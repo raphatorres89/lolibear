@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<!-- PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="titulo">xCool Escolas</ui:insert></title>
+
+	<!-- Custom CSS -->
+	<h:outputStylesheet library="css" name="styles.css" />
+	
+	<!-- jQuery -->
+	<h:outputScript library="js" name="jquery.js" />
+	
+	<!-- Materialize CSS e JS -->	
+	<h:outputStylesheet library="css" name="materialize.css" />
+	<h:outputScript library="js" name="materialize.js" />
+
+	<!-- Chart.js -->
+	<h:outputScript library="js" name="Chart.js" />
+	<h:outputScript library="js" name="Chart.bundle.js" />
+
+	<!--Import do Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+	<link href="//cdn.materialdesignicons.com/1.9.32/css/materialdesignicons.min.css" rel="stylesheet"></link>
+
+	<!-- Optimização do browser para Mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:ajaxStatus onstart="mostrarLoader()" onsuccess="ocultarLoader()" />
+	</h:form>
+	
+	<header>
+		<!-- Side Bar Menu -->
+		<ul id="slide-out" class="side-nav">
+			<li>
+				<div class="userView">
+					<div class="background">
+						<!-- <p:graphicImage library="images" name="capa.jpg" /> -->
+					</div>
+					
+					<a href="#!user">
+						<!-- <p:graphicImage library="images" name="user.png" class="circle" /> -->
+					</a> 
+					
+					<a href="#!name">
+						<!-- <span class="black-text name">Usuário teste</span> -->
+					</a> 
+					
+					<a href="#!email">
+						<!-- <span class="black-text email">usuario.teste@xcool.com.br</span> -->
+					</a>
+				</div>
+			</li>
+			
+			<li>
+				<a jsf:outcome="/index.xhtml">
+					<i class="material-icons">home</i>Início
+				</a>
+			</li>
+			
+			<li><a class="waves-effect letraDourada" jsf:outcome="/campeoes/consultar.xhtml">Consultar</a></li>
+			
+			<li><div class="divider"></div></li>
+			
+		</ul>
+
+
+		<!-- Menu Superior -->
+		<nav class="black">
+			<div class="nav-wrapper container">
+				
+				<ul id="dropCampeao" class="dropdown-content">
+					<li><a jsf:outcome="/campeoes/consultar.xhtml">Consultar</a></li>
+				</ul>
+			
+	
+				<a href="#" data-activates="slide-out" class="button-collapse">
+					<i class="material-icons">menu</i>
+				</a>
+				
+				<ul class="right hide-on-med-and-down">
+				
+					<li>
+						<a jsf:outcome="/index.xhtml">
+						<i class="material-icons left icon-dourado">home</i></a>
+					</li>
+					
+					<li><a class="dropdown-button letraDourada" href="#!" data-activates="dropCampeao">Campeões</a></li>
+					
+				</ul>
+			</div>
+		</nav>
+	</header>
+	
+	
+	<!-- Conteúdo principal -->
+	
+	<main>
+		<div class="loader">
+			<div class="progress">
+				<div class="indeterminate"></div>
+			</div>
+		</div>
+	
+		<div class="row">
+			<ui:insert name="corpo" />
+		</div>
+	
+		<div style="margin-top: 100px;" />
+	</main>
+	
+	
+	<!-- Rodapé -->
+	
+	<footer class="page-footer grey darken-4">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Informativo</h5>
+					<p class="grey-text text-lighten-4">...</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Redes</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3"
+							href="https://www.facebook.com/raphao.torres89">Facebook</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright grey darken-4">
+			<div class="container">
+				© 2017 Raphael Torres <a class="grey-text text-lighten-4 right"
+					href="#">...</a>
+			</div>
+		</div>
+	</footer>
+	
+	<h:outputScript library="js" name="customjs.js" />
+
+</h:body>
+</html>

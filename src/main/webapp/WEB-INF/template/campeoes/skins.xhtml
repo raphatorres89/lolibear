@@ -1,0 +1,58 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<!-- <div class="row">
+		<div class="carousel carousel-slider">
+			<ui:repeat var="skin" value="#{campeaoController.campeao.skins}">
+				<a class="carousel-item">
+					<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/#{campeaoController.campeao.name}_#{skin.num}.jpg" />
+				</a>
+			</ui:repeat>
+		</div>
+	</div> -->
+	
+	<div class="row">
+		<div class="carousel carousel-slider">
+			<ui:repeat var="skin" value="#{campeaoController.campeao.skins}">
+				<a class="carousel-item">
+					<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/#{campeaoController.campeao.name}_#{skin.num}.jpg" />
+					<span class="sobreposto">#{skin.name}</span>
+				</a>
+			</ui:repeat>
+		</div>
+	</div>
+
+	<!-- <div class="row">
+		<div class="carousel carousel-slider">
+			<ui:repeat var="skin" value="#{campeaoController.campeao.skins}">
+				<div class="carousel-item" href="#one!">
+					<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/#{campeaoController.campeao.name}_#{skin.num}.jpg" />
+					<div class="caption center-align">
+						<h3>#{skin.name}</h3>
+					</div>
+				</div>
+			</ui:repeat>
+		</div>
+	</div> -->
+	
+	<!-- <div class="slider">
+		<ul class="slides">
+			<ui:repeat var="skin" value="#{campeaoController.campeao.skins}">
+	      		<li>
+					<div class="carousel-item" href="#one!">
+						<img style="width: 100%; height: auto;"
+							src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/#{campeaoController.campeao.name}_#{skin.num}.jpg" />
+						<div class="caption center-align">
+							<h3>#{skin.name}</h3>
+						</div>
+					</div>
+				</li>
+			</ui:repeat>
+		</ul>
+	</div> -->
+			
+
+</ui:composition>

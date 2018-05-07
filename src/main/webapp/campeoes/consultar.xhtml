@@ -1,0 +1,60 @@
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Lolibear</ui:define>
+
+	<ui:define name="corpo">
+
+		<div class="container">
+
+			<h3 class="letraDourada">Consultar</h3>
+
+			<div class="row">
+				<div class="col s12 l4">
+					<h:form>
+						<h:selectOneMenu id="selectCampeao"
+							value="#{campeaoController.selecionado}">
+							<f:selectItem itemLabel="Selecione" itemValue="" />
+							<f:selectItems value="#{campeaoController.campeoes}" var="c"
+								itemLabel="#{c.name}" itemValue="#{c.name}" />
+								<p:ajax event="change" update=":formCampeao"
+									listener="#{campeaoController.atualizarCampeao}" />
+						</h:selectOneMenu>
+					</h:form>
+				</div>
+			</div>
+
+			<!-- Dados -->
+
+			<h:form id="formCampeao">
+				<h:panelGroup id="divCampeao" rendered="#{campeaoController.render}">
+					<!-- Infos -->
+
+					<ui:include src="/WEB-INF/template/campeoes/infos.xhtml" />
+
+					<!-- Tips -->
+
+					<ui:include src="/WEB-INF/template/campeoes/tips.xhtml" />
+
+					<!-- Spells -->
+
+					<ui:include src="/WEB-INF/template/campeoes/spells.xhtml" />
+
+					<!-- Stats -->
+
+					<ui:include src="/WEB-INF/template/campeoes/stats.xhtml" />
+
+					<!-- Skins -->
+
+					<ui:include src="/WEB-INF/template/campeoes/skins.xhtml" />
+				</h:panelGroup>
+			</h:form>
+
+		</div>
+
+	</ui:define>
+</ui:composition>

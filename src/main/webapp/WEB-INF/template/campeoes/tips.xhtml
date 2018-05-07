@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<div class="row">
+		<div class="col s12">
+			<ul id="tabs-swipe-demo" class="tabs">
+				<li class="tab col s4 grey darken-3"><a href="#test1" class="active">Aliado</a></li>
+				<li class="tab col s4 grey darken-3"><a href="#test2" >Inimigo</a></li>
+				<li class="tab col s4 grey darken-3"><a href="#test3" >História</a></li>
+			</ul>
+		</div>
+		<div id="test1" class="col s12">
+			<ui:repeat var="tips" value="#{campeaoController.campeao.allytips}">
+				<h:outputText class="letraDourada2" value="#{tips}" />
+			</ui:repeat>
+		</div>
+		<div id="test2" class="col s12">
+			<ui:repeat var="tips" value="#{campeaoController.campeao.enemytips}">
+				<h:outputText class="letraDourada2" value="#{tips}" />
+			</ui:repeat>
+		</div>
+		<div id="test3" class="col s12">
+			<h:outputText class="letraDourada2" value="#{campeaoController.campeao.lore}" escape="false" />
+		</div>
+
+		<script>
+			$(document).ready(function() {
+				$('ul.tabs').tabs({
+					'swipeable' : true
+				});
+			});
+		</script>
+	</div>
+
+</ui:composition>

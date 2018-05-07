@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<div class="row">
+		<div class="col s12 m6">
+
+			<div class="col s4 m4">
+				<img class="responsive-img circle" style="width: 80px !important;"
+					src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/#{campeaoController.campeao.image.full}" />
+			</div>
+			<div class="col s8 m8">
+				<div class="row">
+					<h3 class="letraDourada" style="margin: 0rem 0 0rem 0;">#{campeaoController.campeao.name}</h3>
+					<p class="letraDourada2" style="margin-top: 0;">#{campeaoController.campeao.title}</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s12 l6">
+			<h:outputStylesheet library="css" name="grafico.css" />
+			<div class="wrap">
+				<div class="barGraph">
+					<ul class="graph">
+						<span class="graph-barBack">
+							<li class="graph-bar g1" data-value="#{campeaoController.campeao.info.attack}">
+								<span class="graph-legend letraDourada">Ataque</span>
+							</li>
+						</span>
+
+						<span class="graph-barBack">
+							<li class="graph-bar g2" data-value="#{campeaoController.campeao.info.defense}">
+								<span class="graph-legend letraDourada">Defesa</span>
+							</li>
+						</span>
+
+						<span class="graph-barBack">
+							<li class="graph-bar g3" data-value="#{campeaoController.campeao.info.magic}">
+								<span class="graph-legend letraDourada">Magia</span>
+							</li>
+						</span>
+
+						<span class="graph-barBack">
+							<li class="graph-bar g4" data-value="#{campeaoController.campeao.info.difficulty}">
+								<span class="graph-legend letraDourada">Dificuldade</span>
+							</li>
+						</span>
+					</ul>
+				</div>
+
+				<script>
+					$(document).ready(function() {
+					  $('.graph-bar').each(function() {
+					     var dataWidth = $(this).data('value');
+					     $(this).css("width", dataWidth + "0%");
+					  });
+					});
+
+				</script>
+			</div>
+		</div>
+	</div>
+
+</ui:composition>
