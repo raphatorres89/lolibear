@@ -1,4 +1,4 @@
-package net.rithms.riot.dto.Champion;
+package net.rithms.riot.dto.Static;
 
 import java.io.Serializable;
 
@@ -18,38 +18,37 @@ import java.io.Serializable;
  * limitations under the License.
  */
 
-public class Champion implements Serializable {
+public class Image implements Serializable {
 
-	private static final long serialVersionUID = 4342849519353550572L;
+	private static final long serialVersionUID = 5802273643884377746L;
+	private String full, group, sprite;
+	private int h, w, x, y;
 
-	private boolean active, botEnabled, botMmEnabled, freeToPlay, rankedPlayEnabled;
-	private long id;
-
-	public boolean isBotEnabled() {
-		return botEnabled;
+	public String getFull() {
+		return full;
 	}
 
-	public void setBotEnabled(boolean botEnabled) {
-		this.botEnabled = botEnabled;
+	public String getGroup() {
+		return group;
 	}
 
-	public boolean isActive() {
-		return active;
+	public String getSprite() {
+		return sprite;
 	}
 
-	public boolean isFreeToPlay() {
-		return freeToPlay;
+	public int getH() {
+		return h;
 	}
 
-	public boolean isRankedPlayEnabled() {
-		return rankedPlayEnabled;
+	public int getW() {
+		return w;
 	}
 
-	public boolean isBotMmEnabled() {
-		return botMmEnabled;
+	public int getX() {
+		return x;
 	}
 
-	public long getId() {
-		return id;
+	public int getY() {
+		return y;
 	}
 }

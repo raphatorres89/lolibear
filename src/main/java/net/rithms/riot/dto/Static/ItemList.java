@@ -1,6 +1,8 @@
-package net.rithms.riot.dto.Champion;
+package net.rithms.riot.dto.Static;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 /*
  * Copyright 2014 Taylor Caldwell
@@ -18,38 +20,36 @@ import java.io.Serializable;
  * limitations under the License.
  */
 
-public class Champion implements Serializable {
+public class ItemList implements Serializable {
 
-	private static final long serialVersionUID = 4342849519353550572L;
+	private static final long serialVersionUID = -1708490617004185357L;
+	private List<Group> groups;
+	private List<ItemTree> tree;
+	private Map<String, Item> data;
+	private BasicData basic;
+	private String type, version;
 
-	private boolean active, botEnabled, botMmEnabled, freeToPlay, rankedPlayEnabled;
-	private long id;
-
-	public boolean isBotEnabled() {
-		return botEnabled;
+	public List<Group> getGroups() {
+		return groups;
 	}
 
-	public void setBotEnabled(boolean botEnabled) {
-		this.botEnabled = botEnabled;
+	public List<ItemTree> getTree() {
+		return tree;
 	}
 
-	public boolean isActive() {
-		return active;
+	public Map<String, Item> getData() {
+		return data;
 	}
 
-	public boolean isFreeToPlay() {
-		return freeToPlay;
+	public BasicData getBasic() {
+		return basic;
 	}
 
-	public boolean isRankedPlayEnabled() {
-		return rankedPlayEnabled;
+	public String getType() {
+		return type;
 	}
 
-	public boolean isBotMmEnabled() {
-		return botMmEnabled;
-	}
-
-	public long getId() {
-		return id;
+	public String getVersion() {
+		return version;
 	}
 }
