@@ -15,52 +15,54 @@ package net.rithms.riot.api;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import java.util.List;
+import java.util.Map;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import com.google.gson.reflect.TypeToken;
 
 import net.rithms.riot.constant.Region;
-import net.rithms.riot.dto.Champion.Champion;
-import net.rithms.riot.dto.Champion.ChampionList;
+import net.rithms.riot.dto.Team.Team;
 
 /**
- * @version 1.2
+ * @version 2.4
  */
-final class ChampionApi {
+final class TeamApi {
 
-	private static final String VERSION = "/v1.2/";
+	private static final String VERSION = "/v2.4/";
 
-	public static ChampionList getChampions(Region region, String key, boolean freeToPlay) throws RiotApiException {
-		String url = region.getEndpoint() + VERSION + "champion?api_key=" + key;
-		if (freeToPlay) {
-			url += "&freeToPlay=" + freeToPlay;
-		}
+	public static Map<String, List<Team>> getTeamsBySummonerIds(Region region, String key, String summonerIds) throws RiotApiException {
+		String url = region.getEndpoint() + VERSION + "team/by-summoner/" + summonerIds + "?api_key=" + key;
 
-		ChampionList championList = null;
+		Map<String, List<Team>> teams = null;
 		try {
-			championList = new Gson().fromJson(Request.sendGet(url), ChampionList.class);
+			teams = new Gson().fromJson(Request.sendGet(url), new TypeToken<Map<String, List<Team>>>() {
+			}.getType());
 		} catch (JsonSyntaxException e) {
 			throw new RiotApiException(RiotApiException.PARSE_FAILURE);
 		}
-		if (championList == null) {
+		if (teams == null) {
 			throw new RiotApiException(RiotApiException.PARSE_FAILURE);
 		}
 
-		return championList;
+		return teams;
 	}
 
-	public static Champion getChampionById(Region region, String key, int id) throws RiotApiException {
-		String url = region.getEndpoint() + VERSION + "champion/" + id + "?api_key=" + key;
+	public static Map<String, Team> getTeamsByTeamIds(Region region, String key, String teamIds) throws RiotApiException {
+		String url = region.getEndpoint() + VERSION + "team/" + teamIds + "?api_key=" + key;
 
-		Champion champion = null;
+		Map<String, Team> teams = null;
 		try {
-			champion = new Gson().fromJson(Request.sendGet(url), Champion.class);
+			teams = new Gson().fromJson(Request.sendGet(url), new TypeToken<Map<String, Team>>() {
+			}.getType());
 		} catch (JsonSyntaxException e) {
 			throw new RiotApiException(RiotApiException.PARSE_FAILURE);
 		}
-		if (champion == null) {
+		if (teams == null) {
 			throw new RiotApiException(RiotApiException.PARSE_FAILURE);
 		}
 
-		return champion;
+		return teams;
 	}
 }

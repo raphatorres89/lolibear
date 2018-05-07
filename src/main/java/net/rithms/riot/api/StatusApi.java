@@ -15,52 +15,54 @@ package net.rithms.riot.api;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import java.util.List;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import com.google.gson.reflect.TypeToken;
 
 import net.rithms.riot.constant.Region;
-import net.rithms.riot.dto.Champion.Champion;
-import net.rithms.riot.dto.Champion.ChampionList;
+import net.rithms.riot.dto.Status.Shard;
+import net.rithms.riot.dto.Status.ShardStatus;
 
 /**
- * @version 1.2
+ * @version 1.0
  */
-final class ChampionApi {
+final class StatusApi {
 
-	private static final String VERSION = "/v1.2/";
+	public static List<Shard> getShards() throws RiotApiException {
+		String url = "http://status.leagueoflegends.com/shards";
 
-	public static ChampionList getChampions(Region region, String key, boolean freeToPlay) throws RiotApiException {
-		String url = region.getEndpoint() + VERSION + "champion?api_key=" + key;
-		if (freeToPlay) {
-			url += "&freeToPlay=" + freeToPlay;
-		}
-
-		ChampionList championList = null;
+		List<Shard> shards = null;
 		try {
-			championList = new Gson().fromJson(Request.sendGet(url), ChampionList.class);
+			shards = new Gson().fromJson(Request.sendGet(url), new TypeToken<List<Shard>>() {
+			}.getType());
 		} catch (JsonSyntaxException e) {
 			throw new RiotApiException(RiotApiException.PARSE_FAILURE);
 		}
-		if (championList == null) {
+		if (shards == null) {
 			throw new RiotApiException(RiotApiException.PARSE_FAILURE);
 		}
 
-		return championList;
+		return shards;
 	}
 
-	public static Champion getChampionById(Region region, String key, int id) throws RiotApiException {
-		String url = region.getEndpoint() + VERSION + "champion/" + id + "?api_key=" + key;
+	public static ShardStatus getShardStatus(Region region) throws RiotApiException {
+		String url = "http://status.leagueoflegends.com/shards/" + region;
+		if (region.equals(Region.PBE.getName())) {
+			url = "http://status.pbe.leagueoflegends.com/shards/pbe";
+		}
 
-		Champion champion = null;
+		ShardStatus status = null;
 		try {
-			champion = new Gson().fromJson(Request.sendGet(url), Champion.class);
+			status = new Gson().fromJson(Request.sendGet(url), ShardStatus.class);
 		} catch (JsonSyntaxException e) {
 			throw new RiotApiException(RiotApiException.PARSE_FAILURE);
 		}
-		if (champion == null) {
+		if (status == null) {
 			throw new RiotApiException(RiotApiException.PARSE_FAILURE);
 		}
 
-		return champion;
+		return status;
 	}
 }
